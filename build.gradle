@@ -1,0 +1,29 @@
+group 'com.xiiilab'
+version '0.5-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'maven'
+
+sourceCompatibility = 1.6
+
+repositories {
+    mavenCentral()
+}
+
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
