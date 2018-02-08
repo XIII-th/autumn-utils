@@ -89,7 +89,8 @@ public abstract class PlatformLogComponent {
 
     /**
      * Получение подготовленых параметров лога
-     * @param cls класс контейнера для которого нужно вернуть {@link AbstractLogConsumer}. Используется как идентификатор
+     * @param cls класс контейнера для которого нужно вернуть {@link AbstractLogConsumer}.
+     *            Класс здесь является идентификатором
      * @param params параметры лога
      * @param <Container> тип платформозависимого контейнера
      * @return {@link AbstractLogConsumer}, в контейнер которого уже уложены данные
@@ -103,7 +104,8 @@ public abstract class PlatformLogComponent {
 
     /**
      * Создание {@link AbstractLogConsumer}, в зависимости от типа {@code cls}
-     * @param cls класс контейнера для которого нужно вернуть {@link AbstractLogConsumer}. Используется как идентификатор
+     * @param cls класс контейнера для которого нужно вернуть {@link AbstractLogConsumer}.
+     *            Класс здесь является идентификатором
      * @param capacity количество параметров лога, для которого нужно выделить пространство
      * @param <Container> тип платформозависимого контейнера
      * @return новый {@link AbstractLogConsumer} с контейнером типа {@code cls}
