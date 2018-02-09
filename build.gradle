@@ -1,13 +1,19 @@
 group 'com.xiiilab'
-version '0.5-SNAPSHOT'
+version '0.5'
 
 apply plugin: 'java'
 apply plugin: 'maven'
 
-sourceCompatibility = 1.6
+sourceCompatibility = 1.8
+
+ext {
+    autumnVersion = '1.9'
+    gdxVersion = '1.9.8'
+}
 
 repositories {
     mavenCentral()
+    mavenLocal()
 }
 
 task javadocJar(type: Jar) {
@@ -25,5 +31,9 @@ artifacts {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'com.badlogicgames.gdx', name:  'gdx', version: "$gdxVersion"
+    compile group: 'com.github.czyzby', name: 'gdx-autumn-mvc', version: "$autumnVersion.$gdxVersion-SNAPSHOT"
+    compile group: 'com.badlogicgames.gdx', name: 'gdx-freetype', version:  "$gdxVersion"
+    // stream support https://github.com/landawn/Lightweight-Stream-API
+    compile group: 'com.annimon', name: 'stream', version: '1.1.9'
 }
