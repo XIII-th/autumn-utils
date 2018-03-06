@@ -1,8 +1,6 @@
 package com.xiiilab.autumnutils.platform.log;
 
-import static com.xiiilab.autumnutils.platform.log.LogBuilder.CLASS;
-import static com.xiiilab.autumnutils.platform.log.LogBuilder.ERROR;
-import static com.xiiilab.autumnutils.platform.log.LogBuilder.EVENT;
+import static com.xiiilab.autumnutils.platform.log.LogBuilder.*;
 
 /**
  * Компонент для укладки данных лога в платформозависимый контейнер
@@ -69,7 +67,7 @@ public abstract class AbstractLogConsumer<Container> {
         else if (v instanceof Integer || v instanceof Short || v instanceof Byte)
             putLong(key, ((Number) v).longValue());
         else
-            putString(key, v.toString());
+            putString(key, String.valueOf(v));
     }
 
     protected abstract void putString(Object key, String v);
