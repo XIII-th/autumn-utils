@@ -49,9 +49,10 @@ public class ResetProcessor extends AbstractAnnotationProcessor<Resettable> {
     }
 
     public void reset(Class<?> cls, GameStage stage) {
-        ControllerResettable controllerResettable = _resettableMap.get(cls);
-        if (controllerResettable != null)
-            controllerResettable.reset(stage);
+        for (Map.Entry<Class<?>, ControllerResettable> entry : _resettableMap.entrySet()) {
+            if (entry.getKey().isAssignableFrom(cls))
+                entry.getValue().reset(stage);
+        }
         _anyResettable.reset(stage);
     }
 
