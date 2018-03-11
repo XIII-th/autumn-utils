@@ -19,6 +19,7 @@ import com.xiiilab.autumnutils.font.FontProcessor;
 import com.xiiilab.autumnutils.font.FontStyleProcessor;
 import com.xiiilab.autumnutils.font.ReloadLocaleAction;
 import com.xiiilab.autumnutils.resettable.ResetProcessor;
+import com.xiiilab.autumnutils.rules.RulesProcessor;
 
 /**
  * Created by XIII-th on 05.11.2017
@@ -37,7 +38,8 @@ public class AutumnExtApplication extends AutumnApplication {
                 FontProcessor.class,
                 FontStyleProcessor.class,
                 ReloadLocaleAction.class,
-                FreeTypeSkinService.class
+                FreeTypeSkinService.class,
+                RulesProcessor.class
         );
         registerComponents(scanner, getClass());
     }
