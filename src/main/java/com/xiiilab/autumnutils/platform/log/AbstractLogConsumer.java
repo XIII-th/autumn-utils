@@ -64,7 +64,7 @@ public abstract class AbstractLogConsumer<Container> {
 
         if (v instanceof Float || v instanceof Double)
             putDouble(key, ((Number) v).doubleValue());
-        else if (v instanceof Integer || v instanceof Short || v instanceof Byte)
+        else if (v instanceof Number)
             putLong(key, ((Number) v).longValue());
         else
             putString(key, String.valueOf(v));
