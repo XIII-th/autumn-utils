@@ -24,6 +24,8 @@ public class RulesProcessor extends AbstractAnnotationProcessor<GameRule> {
     private HashMap<IGameRule, Integer> _tempSortingMap;
     private List<IGameRule> _rules;
 
+    private boolean _enabled;
+
     public RulesProcessor(EventDispatcher dispatcher) {
         _dispatcher = dispatcher;
     }
@@ -46,7 +48,7 @@ public class RulesProcessor extends AbstractAnnotationProcessor<GameRule> {
 
     @Override
     public void processType(Class<?> type, GameRule annotation, Object component, Context context,
-            ContextInitializer initializer, ContextDestroyer contextDestroyer) {
+                            ContextInitializer initializer, ContextDestroyer contextDestroyer) {
         if (component instanceof IGameRule)
             _tempSortingMap.put((IGameRule) component, annotation.order());
         else
@@ -64,9 +66,14 @@ public class RulesProcessor extends AbstractAnnotationProcessor<GameRule> {
         _tempSortingMap = null;
     }
 
+    public void setEnabled(boolean enabled) {
+        _enabled = enabled;
+    }
+
     public void checkRules() {
-        for (IGameRule rule : _rules)
-            for (GameRuleEvent event : rule.checkRuleApplicable())
-                _dispatcher.postEvent(event);
+        if (_enabled)
+            for (IGameRule rule : _rules)
+                for (GameRuleEvent event : rule.checkRuleApplicable())
+                    _dispatcher.postEvent(event);
     }
 }
