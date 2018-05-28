@@ -47,6 +47,15 @@ public abstract class PlatformLogComponent {
     }
 
     /**
+     * Установка пользовательского свойства для выделения груп пользователей
+     * @param name название свойства
+     * @param value значение свойства
+     */
+    public void property(String name, String value) {
+        Gdx.app.debug(getClass().getSimpleName(), String.format("Setup user property %s=%s", name, value));
+    }
+
+    /**
      * Некий идентификатор пользователя, по которому можно будет различать события одного пользователя от событий другого
      * @param identifier не рекомендуется использовать почту, пароли и другую персональную информацию
      */
