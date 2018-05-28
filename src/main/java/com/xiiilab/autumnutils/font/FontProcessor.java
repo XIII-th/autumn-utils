@@ -30,6 +30,8 @@ import static com.badlogic.gdx.graphics.Texture.TextureFilter.Linear;
 @Processor
 public class FontProcessor extends AbstractAnnotationProcessor<Font> {
 
+    public static float FONT_SCALE = 1F;
+
     private final String UNKNOWN_SYMBOLS;
     private final String COMMON_SYMBOLS;
     private final FontStyleProcessor _fontStyleProcessor;
@@ -152,6 +154,7 @@ public class FontProcessor extends AbstractAnnotationProcessor<Font> {
 
         generator.dispose();
         _fontCache.put(style, font);
+        font.getData().setScale(FONT_SCALE);
         return font;
     }
 

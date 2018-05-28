@@ -1,5 +1,5 @@
 group 'com.xiiilab'
-version '0.62'
+version '0.621'
 
 apply plugin: 'java'
 apply plugin: 'maven'
